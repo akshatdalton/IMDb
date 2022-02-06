@@ -1,0 +1,33 @@
+{
+  "name": "imdb",
+  "version": "1.0.0",
+  "description": "A movie search engine by scrapping the IMDb website.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/akshatdalton/IMDb.git"
+  },
+  "author": "Akshat",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/akshatdalton/IMDb/issues"
+  },
+  "homepage": "https://github.com/akshatdalton/IMDb#readme",
+  "dependencies": {
+    "axios": "^0.25.0",
+    "concurrently": "^7.0.0",
+    "config": "^3.3.7",
+    "cors": "^2.8.5",
+    "express": "^4.17.2",
+    "jssoup": "^0.0.15",
+    "mongoose": "^6.2.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
