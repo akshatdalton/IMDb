@@ -13,6 +13,7 @@ import {
 } from "react-bootstrap";
 
 const MovieCard = ({ movie }) => {
+
     return (
         <Col>
             {/* I will may add href. */}
@@ -21,6 +22,7 @@ const MovieCard = ({ movie }) => {
                 <Card.Img variant="top" src={movie.img_link} />
                 <Card.Body>
                     <Card.Title>{movie.title}</Card.Title>
+                    {movie.rating} | {movie.genre}
                 </Card.Body>
             </Card>
             {/* </a> */}

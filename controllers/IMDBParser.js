@@ -3,19 +3,19 @@ const JSSoup = require("jssoup").default;
 module.exports = class IMDBParser {
     constructor(content) {
         this.soup = new JSSoup(content);
-        this.titles = this.soup.find("table", "findList");
+        this.div_list = this.soup.find("div", "lister-list");
     }
 
     check_error() {
-        return this.titles === undefined || this.titles === "";
+        return this.div_list === undefined;
     }
 
     extract_movies_list() {
         this.movies_list = [];
-        let curr_tag = this.titles.nextElement;
-        const tr_list = [curr_tag, ...curr_tag.nextSiblings];
+        let curr_tag = this.div_list.nextElement;
+        const tag_list = [curr_tag, ...curr_tag.nextSiblings];
 
-        tr_list.forEach((movie_tag) => {
+        tag_list.forEach((movie_tag) => {
             const content = this.extract_movie_content(movie_tag);
             this.movies_list.push(content);
         });
@@ -25,11 +25,42 @@ module.exports = class IMDBParser {
 
     extract_movie_content(movie_tag) {
         const img_tag = movie_tag.find("img");
-        const a_tag = movie_tag.find("a");
+        let img_link;
+        if (img_tag !== undefined) {
+            img_link = img_tag.attrs.loadlate;
+        } else {
+            img_link = "";
+        }
+
+        const title_tag = movie_tag.find("h3", "lister-item-header");
+        let title;
+        if (title_tag !== undefined && title_tag.find("a") !== undefined) {
+            title = title_tag.find("a").text;
+        } else {
+            title = "";
+        }
+
+        const rating_tag = movie_tag.find("div", "ratings-bar");
+        let rating;
+        if (rating_tag !== undefined && rating_tag.find("strong") !== undefined) {
+            rating = rating_tag.find("strong").text;
+        } else {
+            rating = "NA";
+        }
+
+        const genre_tag = movie_tag.find("span", "genre");
+        let genre;
+        if (genre_tag !== undefined) {
+            genre = genre_tag.text;
+        } else {
+            genre = "";
+        }
+
         const movie = {
-            title: movie_tag.text,
-            link: a_tag.attrs.href,
-            img_link: img_tag.attrs.src,
+            title,
+            img_link,
+            rating,
+            genre,
         };
         return movie;
     }

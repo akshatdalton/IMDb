@@ -21,10 +21,8 @@ import "./dashboard.css";
 const Dashboard = () => {
     const [searchQuery, setSearchQuery] = useState("");
     const [moviesList, setMoviesList] = useState([
-        { title: "Hello", img_link: "", link: "" },
+        { title: "Attack on Titan", img_link: "", rating: "9.8", genre: "action" },
     ]);
-
-    // console.log("movieList = ", moviesList);
 
     const handleSearch = async (e) => {
         e.preventDefault();
@@ -60,8 +58,8 @@ const Dashboard = () => {
             </div>
             <div className="movie-list">
                 <Row xs={5} md={6} lg={6} className="g-4">
-                    {moviesList.map((movie) => (
-                        <MovieCard movie={movie} />
+                    {moviesList.map((movie, index) => (
+                        <MovieCard key={index} movie={movie} />
                     ))}
                 </Row>
             </div>
