@@ -69,7 +69,7 @@ class IMDBParser {
     }
 }
 
-const IMDBSlider = (response) => {
+const IMDBSlides = (response) => {
     const soup = new JSSoup(response);
     const slides = [];
 
@@ -84,4 +84,4 @@ const IMDBSlider = (response) => {
     return slides;
 };
 
-module.exports = { IMDBSlider, IMDBParser };
+module.exports = { IMDBSlides, IMDBParser };

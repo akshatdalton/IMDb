@@ -4,10 +4,16 @@
 }
 
 .movie-input-group {
-    background-color: #F5C529;
+    background-color: #f5c529;
 }
 
 .movie-list {
     margin-left: 5%;
     margin-right: 5%;
+}
+
+.movie-carousel {
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 10px;
 }

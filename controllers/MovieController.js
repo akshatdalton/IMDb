@@ -1,4 +1,4 @@
-const { fetch_results, fetch_sliders } = require("./FetchData");
+const { fetch_results, fetch_slides } = require("./FetchData");
 
 module.exports = {
     getMovies(req, res) {
@@ -7,9 +7,11 @@ module.exports = {
             .then((matches) => res.json(matches))
             .catch((err) => res.status(404).json(err));
     },
-    getSliders(req, res) {
-        fetch_sliders()
-            .then((sliders) => res.json(sliders))
+    getSlides(req, res) {
+        fetch_slides()
+            .then((slides) => {
+                res.json(slides)
+            })
             .catch((err) => res.status(404).json(err));
     },
 };

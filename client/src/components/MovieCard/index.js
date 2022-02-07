@@ -1,19 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 
-import {
-    Accordion,
-    Alert,
-    Form,
-    FormControl,
-    InputGroup,
-    Col,
-    Row,
-    Card,
-    Button,
-} from "react-bootstrap";
+import { Card, Col } from "react-bootstrap";
 
 const MovieCard = ({ movie }) => {
-
     return (
         <Col>
             {/* I will may add href. */}

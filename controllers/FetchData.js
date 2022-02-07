@@ -1,5 +1,5 @@
 const axios = require("axios").default;
-const { IMDBParser, IMDBSlider } = require("./IMDBParser");
+const { IMDBParser, IMDBSlides } = require("./IMDBParser");
 
 const fetch_results = async (query) => {
     // query database first
@@ -31,17 +31,17 @@ const fetch_results = async (query) => {
     }
 };
 
-const fetch_sliders = async () => {
+const fetch_slides = async () => {
     try {
         const response = await axios.get("https://www.imdb.com/");
         if (response.status !== 200) {
             console.log("Error: ", response.status, " msg: ", response.message);
             throw response.error;
         }
-        return IMDBSlider(response.data);
+        return IMDBSlides(response.data);
     } catch (error) {
         console.log("Error: ", error);
     }
 };
 
-module.exports = { fetch_results, fetch_sliders };
+module.exports = { fetch_results, fetch_slides };
