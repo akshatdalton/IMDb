@@ -1,0 +1,13 @@
+.movie-search {
+    max-width: 90%;
+    margin-top: 20px;
+}
+
+.movie-input-group {
+    background-color: #F5C529;
+}
+
+.movie-list {
+    margin-left: 5%;
+    margin-right: 5%;
+}
