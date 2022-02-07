@@ -1,6 +1,6 @@
 const JSSoup = require("jssoup").default;
 
-module.exports = class IMDBParser {
+class IMDBParser {
     constructor(content) {
         this.soup = new JSSoup(content);
         this.div_list = this.soup.find("div", "lister-list");
@@ -42,7 +42,10 @@ module.exports = class IMDBParser {
 
         const rating_tag = movie_tag.find("div", "ratings-bar");
         let rating;
-        if (rating_tag !== undefined && rating_tag.find("strong") !== undefined) {
+        if (
+            rating_tag !== undefined &&
+            rating_tag.find("strong") !== undefined
+        ) {
             rating = rating_tag.find("strong").text;
         } else {
             rating = "NA";
@@ -64,4 +67,21 @@ module.exports = class IMDBParser {
         };
         return movie;
     }
+}
+
+const IMDBSlider = (response) => {
+    const soup = new JSSoup(response);
+    const slides = [];
+
+    soup.findAll("div", "swiper-slide").forEach((tag) =>
+        tag.findAll("img").forEach((t, index) => {
+            if (index % 2 === 1) {
+                slides.push(t.attrs.srcSet);
+            }
+        })
+    );
+
+    return slides;
 };
+
+module.exports = { IMDBSlider, IMDBParser };
