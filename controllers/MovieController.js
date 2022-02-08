@@ -5,13 +5,13 @@ module.exports = {
         const query = req.params.query;
         fetch_results(query)
             .then((matches) => res.json(matches))
-            .catch((err) => res.status(404).json(err));
+            .catch((err) => res.status(500).json(err));
     },
     getSlides(req, res) {
         fetch_slides()
             .then((slides) => {
-                res.json(slides)
+                res.json(slides);
             })
-            .catch((err) => res.status(404).json(err));
+            .catch((err) => res.status(500).json(err));
     },
 };

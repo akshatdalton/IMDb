@@ -76,6 +76,7 @@ const IMDBSlides = (response) => {
     soup.findAll("div", "swiper-slide").forEach((tag) =>
         tag.findAll("img").forEach((t, index) => {
             if (index % 2 === 1) {
+                // pick only bigger slides
                 slides.push(t.attrs.srcSet);
             }
         })
