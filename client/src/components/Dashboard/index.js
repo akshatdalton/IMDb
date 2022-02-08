@@ -9,14 +9,7 @@ import "./dashboard.css";
 
 const Dashboard = () => {
     const [searchQuery, setSearchQuery] = useState("");
-    const [moviesList, setMoviesList] = useState([
-        {
-            title: "Attack on Titan",
-            img_link: "",
-            rating: "9.8",
-            genre: "action",
-        },
-    ]);
+    const [moviesList, setMoviesList] = useState([]);
     const [slides, setSlides] = useState([]);
 
     useEffect(() => {
