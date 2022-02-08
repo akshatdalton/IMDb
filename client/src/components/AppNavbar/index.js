@@ -7,7 +7,7 @@ const AppNavbar = () => {
         <nav className="navbar fixed-top navbar-expand-lg navbar-dark p-md-3">
             <div className="container">
                 <a className="navbar-brand" href="#">
-                    <img src="/IMDb-Logo.svg" className="navbar-brand-img" />
+                    <img alt="" src="/IMDb-Logo.svg" className="navbar-brand-img" />
                 </a>
                 <button
                     className="navbar-toggler"

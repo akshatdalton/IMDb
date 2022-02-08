@@ -9,7 +9,7 @@ const MovieCard = ({ movie }) => {
         <Col>
             {/* I will may add href. */}
             {/* <a href={movie.link}> */}
-            <div class="shadow p-3 mb-5 bg-white rounded">
+            <div className="shadow p-3 mb-5 bg-white rounded">
                 <Card className="movie-card">
                     <Card.Img variant="top" src={movie.img_link} />
                     <Card.Body>
