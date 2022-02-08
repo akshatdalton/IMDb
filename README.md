@@ -19,3 +19,8 @@ npm run dev
 ```
 
 Go to `http://localhost:3000/` and enjoy querying!!!!!
+
+Following is the screencast of the working of the app:
+
+https://user-images.githubusercontent.com/67277428/153049760-e0ba1835-dea3-4daf-a274-1d56692c5ce2.mp4
+
