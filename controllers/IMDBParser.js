@@ -19,8 +19,6 @@ class IMDBParser {
             const content = this.extract_movie_content(movie_tag);
             this.movies_list.push(content);
         });
-
-        console.log("Done extracting ...");
     }
 
     extract_movie_content(movie_tag) {
